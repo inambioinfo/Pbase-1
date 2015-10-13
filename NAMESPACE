@@ -1,0 +1,71 @@
+import(methods)
+import(Rcpp)
+import(BiocGenerics)
+import(Biostrings)
+import(IRanges)
+import(S4Vectors)
+import(Gviz)
+import(Pviz)
+import(biomaRt)
+
+importFrom(GenomicRanges, GRanges, GRangesList)
+importFrom(rtracklayer, chrom)
+
+importClassesFrom(Biobase, Versioned)
+importFrom(Biobase, classVersion, isCurrent, validMsg)
+
+importFrom(cleaver, cleave, cleavageRanges)
+
+importFrom(mzR, openIDfile, psms)
+
+## importClassesFrom(mzID, mzID)
+importFrom(mzID, mzID, flatten)
+
+importFrom(MSnbase, addIdentificationData, get.amino.acids, get.atomic.mass)
+
+exportClasses(Proteins,
+              Pparams)
+
+exportMethods(
+    ## class methods
+    Proteins,
+    "[",
+    "[[",
+    aa,
+    acols,
+    ametadata,
+    length,
+    metadata,
+    pcols,
+    pfeatures,
+    pmetadata,
+    pranges,
+    pvarLabels,
+    avarLabels,
+    seqnames,
+    show,
+    ## action methods
+    cleave,
+    plot,
+    addIdentificationData,
+    pfilter,
+    ## mapping
+    mapToGenome,
+    pmapToGenome,
+    ## ranges
+    proteinCoding)
+
+export(rmEmptyRanges,
+       Pparams,
+       etrid2grl,
+       isReverse,
+       isForward,
+       ## actions on Proteins
+       isCleaved,
+       proteinCoverage,
+       proteotypic,
+       calculateHeavyLabels,
+       ## plotting
+       plotAsGeneRegionTrack,
+       plotAsAnnotationTrack)
+
